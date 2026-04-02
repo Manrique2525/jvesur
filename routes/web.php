@@ -18,4 +18,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
+Route::get('/admin/event-editor', function () {
+    return Inertia::render('Admin/EventEditor');
+});
+
 require __DIR__.'/auth.php';
