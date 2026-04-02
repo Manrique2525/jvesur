@@ -2,7 +2,9 @@
     <nav
         class="fixed top-0 left-0 w-full z-50 transition-all duration-500"
         :class="
-            scrolled ? 'bg-[#1A2744] shadow-lg py-3' : 'bg-transparent py-5'
+            scrolled
+                ? 'bg-gradient-to-r from-[#007FE1] via-[#00BFFF] to-[#00E0A6] shadow-lg py-3 backdrop-blur-md'
+                : 'bg-transparent py-5'
         "
     >
         <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -14,34 +16,36 @@
                     class="w-10 h-10 rounded-full object-contain"
                 />
                 <div class="leading-tight">
-                    <p
-                        class="text-[#C9A84C] font-bold text-sm tracking-widest uppercase"
-                    >
+                    <p class="text-[#C9A84C] font-bold text-sm tracking-widest uppercase">
                         Jesucristo
                     </p>
-                    <p class="text-white text-xs tracking-wider opacity-80">
+                    <p class="text-white text-xs tracking-wider opacity-90">
                         Es La Vida Eterna Sur
                     </p>
                 </div>
             </div>
+
             <!-- Desktop Menu -->
             <ul class="hidden md:flex items-center gap-8">
                 <li v-for="item in menuItems" :key="item.id">
                     <a
                         :href="item.href"
-                        class="text-sm tracking-wider uppercase transition-colors duration-300 hover:text-[#C9A84C]"
+                        class="text-sm tracking-wider uppercase transition-all duration-300 hover:text-[#C9A84C]"
                         :class="scrolled ? 'text-white' : 'text-white'"
                         @click.prevent="scrollTo(item.href)"
-                        >{{ item.label }}</a
                     >
+                        {{ item.label }}
+                    </a>
                 </li>
+
                 <li>
                     <a
                         href="#contacto"
                         @click.prevent="scrollTo('#contacto')"
-                        class="px-5 py-2 bg-[#C9A84C] text-[#1A2744] text-sm font-bold tracking-wider uppercase rounded hover:bg-[#b8943e] transition-colors duration-300"
-                        >Contáctanos</a
+                        class="px-5 py-2 bg-[#C9A84C] text-[#1E293B] text-sm font-bold tracking-wider uppercase rounded hover:bg-[#b8943e] transition-all duration-300 shadow-md"
                     >
+                        Contáctanos
+                    </a>
                 </li>
             </ul>
 
@@ -65,6 +69,7 @@
                         d="M4 6h16M4 12h16M4 18h16"
                     />
                 </svg>
+
                 <svg
                     v-else
                     class="w-7 h-7"
@@ -86,7 +91,7 @@
         <transition name="slide-down">
             <div
                 v-if="mobileOpen"
-                class="md:hidden bg-[#1A2744] border-t border-[#C9A84C]/20 px-6 py-4"
+                class="md:hidden bg-gradient-to-r from-[#007FE1] via-[#00BFFF] to-[#00E0A6] border-t border-white/20 px-6 py-4 backdrop-blur-md"
             >
                 <ul class="flex flex-col gap-4">
                     <li v-for="item in menuItems" :key="item.id">
@@ -97,9 +102,11 @@
                                 scrollTo(item.href);
                                 mobileOpen = false;
                             "
-                            >{{ item.label }}</a
                         >
+                            {{ item.label }}
+                        </a>
                     </li>
+
                     <li>
                         <a
                             href="#contacto"
@@ -107,9 +114,10 @@
                                 scrollTo('#contacto');
                                 mobileOpen = false;
                             "
-                            class="inline-block px-5 py-2 bg-[#C9A84C] text-[#1A2744] text-sm font-bold tracking-wider uppercase rounded hover:bg-[#b8943e] transition-colors"
-                            >Contáctanos</a
+                            class="inline-block px-5 py-2 bg-[#C9A84C] text-[#1E293B] text-sm font-bold tracking-wider uppercase rounded hover:bg-[#b8943e] transition-all shadow-md"
                         >
+                            Contáctanos
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -148,6 +156,7 @@ onUnmounted(() => window.removeEventListener("scroll", handleScroll));
 .slide-down-leave-active {
     transition: all 0.3s ease;
 }
+
 .slide-down-enter-from,
 .slide-down-leave-to {
     opacity: 0;

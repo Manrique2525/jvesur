@@ -1,35 +1,44 @@
 <template>
-    <section id="nosotros" class="py-24 bg-[#FAF7F2]">
-        <div class="max-w-7xl mx-auto px-6">
-            <!-- Section header -->
+    <section
+        id="nosotros"
+        class="relative py-24 bg-gradient-to-br from-[#007FE1] via-[#00BFFF] to-[#00E0A6] overflow-hidden"
+    >
+        <!-- Overlay para contraste -->
+        <div class="absolute inset-0 bg-black/40"></div>
+
+        <div class="relative max-w-7xl mx-auto px-6">
+            <!-- Header -->
             <div class="text-center mb-16">
                 <span
-                    class="inline-block text-[#C9A84C] text-xs tracking-[0.4em] uppercase font-semibold mb-3"
-                    >Quiénes Somos</span
+                    class="inline-block text-white text-xs tracking-[0.4em] uppercase font-semibold mb-3"
                 >
-                <h2 class="text-4xl md:text-5xl font-bold text-[#1A2744] mb-4">
+                    Quiénes Somos
+                </span>
+
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
                     Nuestra Iglesia
                 </h2>
+
                 <div class="w-16 h-0.5 bg-[#C9A84C] mx-auto"></div>
             </div>
 
             <div class="grid md:grid-cols-2 gap-16 items-center">
-                <!-- Image / decorative left -->
+                <!-- Imagen -->
                 <div class="relative">
                     <div
-                        class="absolute -top-6 -left-6 w-48 h-48 border-2 border-[#C9A84C]/30 rounded-lg"
+                        class="absolute -top-6 -left-6 w-48 h-48 border border-white/20 rounded-lg"
                     ></div>
+
                     <div
-                        class="relative bg-[#1A2744] rounded-lg overflow-hidden aspect-[4/5] flex items-center justify-center"
+                        class="relative rounded-xl overflow-hidden aspect-[4/5] flex items-center justify-center bg-white/10 backdrop-blur-md border border-white/20"
                     >
-                        <!-- Decorative cross placeholder (replace with real image) -->
                         <img
                             src="/images/Logo_Pulpito.png"
                             alt="Iglesia Jesucristo es la Vida Eterna Sur"
                             class="w-full h-full object-contain p-6"
                         />
 
-                        <!-- Overlay stat cards -->
+                        <!-- Stats -->
                         <div
                             class="absolute bottom-4 left-4 right-4 flex gap-3"
                         >
@@ -39,50 +48,48 @@
                                 <p class="text-[#C9A84C] text-2xl font-bold">
                                     +500
                                 </p>
-                                <p
-                                    class="text-white/70 text-xs tracking-wider uppercase"
-                                >
+                                <p class="text-white/70 text-xs uppercase">
                                     Familias
                                 </p>
                             </div>
+
                             <div
                                 class="flex-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-3 text-center"
                             >
                                 <p class="text-[#C9A84C] text-2xl font-bold">
                                     15+
                                 </p>
-                                <p
-                                    class="text-white/70 text-xs tracking-wider uppercase"
-                                >
+                                <p class="text-white/70 text-xs uppercase">
                                     Años
                                 </p>
                             </div>
+
                             <div
                                 class="flex-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-3 text-center"
                             >
                                 <p class="text-[#C9A84C] text-2xl font-bold">
                                     7
                                 </p>
-                                <p
-                                    class="text-white/70 text-xs tracking-wider uppercase"
-                                >
+                                <p class="text-white/70 text-xs uppercase">
                                     Ministerios
                                 </p>
                             </div>
                         </div>
                     </div>
+
                     <div
-                        class="absolute -bottom-6 -right-6 w-32 h-32 border-2 border-[#C9A84C]/20 rounded-lg"
+                        class="absolute -bottom-6 -right-6 w-32 h-32 border border-white/20 rounded-lg"
                     ></div>
                 </div>
 
-                <!-- Text right -->
+                <!-- Texto -->
                 <div class="space-y-8">
                     <div>
-                        <h3 class="text-2xl font-bold text-[#1A2744] mb-3">
+                        <h3 class="text-2xl font-bold text-white mb-3">
                             Una comunidad de fe y amor
                         </h3>
-                        <p class="text-gray-600 leading-relaxed">
+
+                        <p class="text-white/80 leading-relaxed">
                             Somos una iglesia cristiana comprometida con
                             compartir el mensaje de salvación de Jesucristo.
                             Creemos que la fe transforma vidas, familias y
@@ -91,7 +98,7 @@
                         </p>
                     </div>
 
-                    <!-- Values -->
+                    <!-- Valores -->
                     <div class="space-y-5">
                         <div
                             v-for="value in values"
@@ -99,31 +106,33 @@
                             class="flex items-start gap-4"
                         >
                             <div
-                                class="w-10 h-10 min-w-[2.5rem] rounded-lg bg-[#1A2744] flex items-center justify-center"
+                                class="w-10 h-10 min-w-[2.5rem] rounded-lg bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20"
                             >
-                                <span class="text-[#C9A84C] text-lg">{{
-                                    value.icon
-                                }}</span>
+                                <span class="text-[#C9A84C] text-lg">
+                                    {{ value.icon }}
+                                </span>
                             </div>
+
                             <div>
-                                <h4 class="font-bold text-[#1A2744] mb-0.5">
+                                <h4 class="font-bold text-white mb-0.5">
                                     {{ value.title }}
                                 </h4>
-                                <p
-                                    class="text-gray-500 text-sm leading-relaxed"
-                                >
+
+                                <p class="text-white/70 text-sm leading-relaxed">
                                     {{ value.description }}
                                 </p>
                             </div>
                         </div>
                     </div>
 
+                    <!-- CTA -->
                     <a
                         href="#servicios"
                         @click.prevent="scrollTo('#servicios')"
                         class="inline-flex items-center gap-2 text-[#C9A84C] font-semibold text-sm tracking-wider uppercase hover:gap-4 transition-all duration-300"
                     >
                         Ver nuestros servicios
+
                         <svg
                             class="w-4 h-4"
                             fill="none"
